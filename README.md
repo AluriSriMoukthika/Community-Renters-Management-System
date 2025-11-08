@@ -1,6 +1,6 @@
-#Community Renters Management System#
-Project Summary 
--	by Data Duo
+#Community Renters Management System
+##Project Summary 
+###-	by Data Duo
 Sri Moukthika Aluri
 Gayathri Gandham________________________________________
 Application Domain
