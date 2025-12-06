@@ -1,105 +1,245 @@
-# Community Renters Management System
+# 🚀 Community Renters Management System
 
-## Project Summary
-
-### 👩‍💻 By Data Duo  
-**Sri Moukthika Aluri**  
-**Gayathri Gandham**
+### A Full-Stack Database-Driven Web Application for Residential Communities
 
 ---
 
-## 🏘️ Application Domain
+## 👩‍💻 Built by **Data Duo**
 
-The chosen application is a **Community Renters Management System**.  
-This system is designed for residential communities where all housing units are rental-only. It provides a centralized platform to manage residents, units, maintenance requests, rent payments, amenities, and amenity payments.
-
-The system is useful because community managers need a single solution for handling rentals, payments, facility usage, and issue tracking.
-
-Property management portals exist, but our system is tailored for smaller communities and includes specific features such as:
-
-- **Amenity usage tracking and payments** for facilities like Gym, Pool, Gaming Café, and Clubhouse.  
-- **Conflict alerts** to prevent duplicate clubhouse or amenity usage.  
-- **Rental and maintenance transparency** by linking requests and payments to specific residents and units.
-
-Synthetic but realistic data will be used to populate the system — e.g., sample residents, unit addresses, rental agreements, amenity payments, and maintenance logs.
+**Sri Moukthika Aluri · Gayathri Gandham**
 
 ---
 
-## ⚙️ Functionality
+## 📌 Overview
 
-### Basic Functions
-The system supports the following core operations:
+The Community Renters Management System is a full-stack web application built using:
 
-- **Insert Records**: Add new residents, units, rent payments, amenity payments, maintenance requests, and amenities.  
-- **Search and List**: Retrieve all residents, list units and their occupancy, filter maintenance requests by type, priority, or status.  
-- **Queries:**
-  - Join query: Retrieve all maintenance requests along with the unit and renter details.  
-  - Aggregate query: Calculate total rent collected per month or count residents using a specific amenity.  
-- **Update Records**: Update the status of maintenance requests or edit payment details.  
-- **Delete Records**: Remove cancelled amenity payments, expired renter information, or outdated maintenance requests.
+- **Python Flask** (Backend)  
+- **SQLite** (Database with triggers, views, constraints)  
+- **HTML/CSS/Bootstrap/JavaScript** (Frontend)
 
-### Advanced Functions
+It provides community managers with a unified system to manage:
 
-1. **Conflict Detection and Alerts for Amenities**
-   - The system automatically checks if the clubhouse has already been booked or paid for on a particular date/time.
-   - It limits membership based on capacity for Gym, Pool, and Café.
+✔ Renters  
+✔ Units  
+✔ Amenities & Bookings  
+✔ Rent payments  
+✔ Maintenance requests  
+✔ Amenity payments  
+✔ Conflict detection & analytics  
 
-2. **Maintenance Prioritization**
-   - Requests are ranked by urgency (e.g., water leakage = high priority, painting = low priority).
-
-3. **Amenity Payment Tracking**
-   - Tracks amenity payments by linking renters with amenities.
-   - Supports queries like “Which resident paid for the gym in September?” or “Which amenity generates the most revenue?”
+The system is designed specifically for rental-only communities and offers features tailored for small-scale management needs.
 
 ---
 
-## 🧩 ER Diagram
+## 🏗️ Features
 
-### Entities
-- **Community** (Com_ID, Com_Name, Address, Contact)  
-- **Units** (Unit_ID, Com_ID, Unit_Address, Mail_box_Num, Occupancy, Rent)  
-- **Renter** (Renter_ID, Unit_ID, Name, Phone, Email, SSN, StartDate, EndDate, Amenity_ID)  
-- **Dependents** (Renter_ID, Dept_SSN, Dept_Name, Dept_Phone, Dept_Email) → *(Weak Entity)*  
-- **Rent_Payment** (Re_Pay_ID, Unit_ID, Renter_ID, Rent_Amount, Date, Payment_Type) → *(Weak Entity)*  
-- **Maintenance_Request** (Req_ID, Unit_ID, Renter_ID, Type, Priority, Status) → *(Weak Entity)*  
-- **Amenities** (Amenity_ID, Ame_Name, Com_ID)
+### 🔹 Basic CRUD Operations
 
-#### Subclasses:
-- Gym (Amenity_ID, Trainer, Gym_Fee, Unit_ID, Renter_ID)  
-- Pool (Amenity_ID, Instructor, Pool_Fee, Unit_ID, Renter_ID)  
-- Gaming_Cafe (Amenity_ID, Café_Fee, Unit_ID, Renter_ID)  
-- Clubhouse (Amenity_ID, Renter_ID, Unit_ID, Booking_Date, TimeSlot, Duration, Fee_perHour, Booking_Fee)
+The system supports full Create, Read, Update, and Delete workflows for:
 
-- **Amenity_Payment** (Amenity_Pay_ID, Renter_ID, Amenity_ID, Amount, Amen_Pay_Date, Amen_Pay_Type) → *(Weak Entity)*
+- Communities  
+- Units  
+- Renters  
+- Dependents  
+- Rent Payments  
+- Amenity Payments  
+- Maintenance Requests  
+- Amenity Usage (Gym, Pool, Café, Clubhouse)
 
-### Relationships
-- A **Community** has **Units** (1-to-many).  
-- A **Unit** is rented by a **Renter** (1-to-many).  
-- **Dependents** depend on **Renters** (many-to-1).  
-- A **Renter** makes **Rent_Payments** (1-to-many).  
-- A **Renter** makes **Maintenance_Requests** (1-to-many).  
-- A **Community** offers **Amenities** (1-to-many).  
-- A **Renter** makes **Amenity_Payments** (many-to-many via Amenity_Payment).  
-- **Renter** uses **Gym, Pool, Gaming Café, Clubhouse** (1-to-1 each).
+**Examples:**
+
+- Add renter  
+- Update maintenance status  
+- Delete a payment  
+- View units by community  
 
 ---
 
-## 📘 Assumptions
+## 🔥 Advanced Features
 
-- The community is rental-only — units have no owners.  
-- Each unit belongs to exactly one community.  
-- A renter can only be linked to one active unit at a time.  
-- Each maintenance request is tied to one renter and one unit.  
-- Each rent payment corresponds to one unit and one renter.  
-- Amenities are offered by the community and renters may pay to use them.  
-- Amenity_Payment resolves the many-to-many relationship between renters and amenities.  
-- One renter can have at most one membership/usage record for each amenity type at a time.
+### **1️⃣ Clubhouse Booking Conflict Detection**
+A **BEFORE INSERT** trigger prevents overlapping bookings for the same date & timeslot.
+
+### **2️⃣ Maintenance Priority Engine**
+A SQL view automatically sorts requests:
+
+- High → 1  
+- Medium → 2  
+- Low → 3  
+
+Displayed in UI in priority order.
+
+### **3️⃣ Amenity Revenue Analytics**
+- Aggregates total revenue  
+- Displays counts & totals  
+- Used for admin dashboards  
+
+### **4️⃣ Amenity Membership Validation**
+Triggers prevent payments when a renter has no corresponding amenity membership.
 
 ---
 
-## ⚠️ Constraints
+## 🧩 System Architecture
 
-- The dependent count for each renter cannot exceed **4**.  
-- **Gym** and **Pool** are free for all residents, but trainer/instructor options are optional (Boolean type).  
-- **Membership counts** for Gym, Pool, and Gaming Café are limited.  
-- **Rent** is calculated monthly and **Clubhouse booking** is charged hourly.
+Frontend (HTML, CSS, JS, Bootstrap)
+↓
+Flask Backend (Routing, Validation, Business Logic)
+↓
+SQLite Database (Triggers, Views, Constraints)
+
+
+---
+
+## 🛢️ Database Design
+
+### 📌 ERD & Relational Model
+
+Includes:
+
+- **Strong entities:** Community, Units, Renter, Amenities  
+- **Weak entities:** Dependents, Rent_Payment, Maintenance_Request, Amenity_Payment  
+- **IS-A Hierarchy:** Gym, Pool, Gaming_Cafe, Clubhouse  
+- **Many-to-many:** resolved through Amenity_Payment  
+
+### 📎 Highlights
+
+- Fully normalized to **3NF/BCNF**  
+- **19+ triggers** enforcing data integrity  
+- Multiple SQL views for analytics  
+- Lease overlap prevention  
+- Amenity name validation  
+- Time slot format enforcement for clubhouse booking  
+
+---
+
+## 📂 Project Structure
+
+Community-Renters-Management-System/
+│── app.py # Flask backend
+│── templates/ # HTML pages
+│── static/ # CSS, JS, and images
+│── community_renters.db # SQLite database
+│── README.md # Documentation
+│── /sql # Queries & schema (optional)
+
+
+
+---
+
+## 💡 How Advanced Features Work (Technical Details)
+
+### 🔸 Conflict Detection Trigger
+Ensures:
+- Same date + timeslot → **booking rejected**
+- Error message returned to UI
+
+### 🔸 Maintenance Priority View
+SQL view creates computed column `Priority_Order`:
+
+- High → 1  
+- Medium → 2  
+- Low → 3  
+
+### 🔸 Amenity Revenue Summary
+Aggregates:
+- Total revenue  
+- Amenity name  
+
+Displayed in dashboard.
+
+---
+
+## 🧪 Testing & Debugging
+
+### ✔ Tests Performed:
+- Database constraint testing  
+- Trigger firing tests  
+- UI validation  
+- Integration (UI → Flask → SQLite)  
+- Edge cases (invalid timeslot, invalid amenity name)
+
+### ✔ Debug Challenges Solved:
+- Preventing overlapping leases  
+- Ensuring triggers do not conflict  
+- Handling FK cascades  
+- Time format validation  
+
+---
+
+## 🧑‍🤝‍🧑 Team Contributions
+
+### **Gayathri Gandham**
+- SQLite database design  
+- Triggers, views, constraints  
+- Backend Flask logic  
+- Data population & debugging  
+
+### **Sri Moukthika Aluri**
+- Frontend UI (HTML/CSS/Bootstrap)  
+- Web forms  
+- JavaScript frontend logic  
+- Frontend–backend integration  
+
+### **Both**
+- Documentation  
+- Presentation  
+- Testing  
+- Final demo video  
+
+---
+
+## 📚 References
+
+- SQLite Documentation  
+- Flask Documentation  
+- Bootstrap Docs  
+- MDN Web Docs  
+- Stack Overflow  
+- GeeksforGeeks  
+- DB Browser for SQLite  
+- GSU CSC 4520/6520 Course Materials  
+
+---
+
+## 🏁 Future Enhancements
+
+- Role-based authentication  
+- Resident portal vs Admin portal  
+- Email / SMS notifications  
+- Cloud deployment (AWS / Render / GCP)  
+- Detailed analytics dashboards  
+- Migration to PostgreSQL  
+
+---
+
+## 🎉 Final Note
+
+This project demonstrates mastery over:
+
+- Relational schema design  
+- Normalization  
+- SQL triggers & views  
+- Full-stack application development  
+- Real-world constraint enforcement  
+
+
+
+## 📥 Installation & Setup
+
+```bash
+git clone https://github.com/AluriSriMoukthika/Community-Renters-Management-System.git
+cd Community-Renters-Management-System
+
+python3 -m venv venv
+source venv/bin/activate
+
+pip install flask
+
+python app.py
+
+Open in Browser
+
+http://127.0.0.1:5000/
+
+
