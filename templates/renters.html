@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Renters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<h1>Renters</h1>
+
+<!-- Add Renter Form -->
+<div class="form-container">
+    <h3>Add Renter</h3>
+    <input type="number" id="renter_id" placeholder="Renter_ID" required>
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="unit" placeholder="Unit_ID">
+    <input type="text" id="phone" placeholder="Phone">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="ssn" placeholder="SSN">
+    <input type="date" id="start" placeholder="Start Date">
+    <input type="date" id="end" placeholder="End Date">
+    <input type="number" id="dept_count" placeholder="Dept_Count">
+    <button onclick="addRenter()">Add Renter</button>
+</div>
+
+<div class="table-container">
+    <table id="rentersTable">
+        <thead>
+            <tr>
+                <th>Renter_ID</th>
+                <th>Name</th>
+                <th>Unit_ID</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>SSN</th>
+                <th>Start_Date</th>
+                <th>End_Date</th>
+                <th>Dept_Count</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+</body>
+</html>

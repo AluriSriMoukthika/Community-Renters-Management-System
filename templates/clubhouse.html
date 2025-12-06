@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clubhouse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='clubhouse.js') }}" defer></script>
+</head>
+<body>
+
+<h1>Clubhouse</h1>
+
+<div class="form-container">
+    <h3>Add Clubhouse Entry</h3>
+
+    <input type="number" id="clubhouse_amenity_id" placeholder="Amenity_ID" required>
+    <input type="number" id="unit_id" placeholder="Unit_ID" required>
+    <input type="number" id="renter_id" placeholder="Renter_ID" required>
+
+    <input type="date" id="booking_date" required>
+    <input type="text" id="time_slot" placeholder="HH:MM AM - HH:MM PM" required>
+
+    <!-- Hidden auto-calculated fields -->
+    <input type="hidden" id="duration">
+    <input type="hidden" id="fee_per_hour">
+    <input type="hidden" id="booking_fee">
+
+    <button id="addClubhouseBtn">Add Clubhouse Entry</button>
+</div>
+
+<div class="table-container">
+    <table id="clubhouseTable">
+        <thead>
+            <tr>
+                <th>Clubhouse_ID</th>
+                <th>Amenity_ID</th>
+                <th>Unit_ID</th>
+                <th>Renter_ID</th>
+                <th>Booking1_Date</th>
+                <th>TimeSlot</th>
+                <th>Duration</th>
+                <th>Fee_perHour</th>
+                <th>Booking_Fee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+</body>
+</html>

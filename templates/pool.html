@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='pool.js') }}" defer></script>
+</head>
+<body>
+
+<h1>Pool</h1>
+
+<div class="form-container">
+    <h3>Add Pool Entry</h3>
+    <input type="number" id="pool_amenity_id" placeholder="Amenity_ID">
+    <input type="number" id="unit_id" placeholder="Unit_ID">
+    <input type="number" id="renter_id" placeholder="Renter_ID">
+    <label>
+        <input type="checkbox" id="instructor"> Instructor
+    </label>
+    <button id="addPoolBtn">Add Pool Entry</button>
+</div>
+
+<div class="table-container">
+    <table id="poolTable">
+        <thead>
+            <tr>
+                <th>Pool_ID</th>
+                <th>Amenity_ID</th>
+                <th>Unit_ID</th>
+                <th>Renter_ID</th>
+                <th>Instructor</th>
+                <th>Pool_Fee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+</body>
+</html>

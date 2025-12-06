@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='payments.css') }}">
+    <script src="{{ url_for('static', filename='reports.js') }}" defer></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="title">Payments Dashboard</h1>
+
+    <div class="button-group">
+        <a href="{{ url_for('amenity_payment_page') }}" class="btn">Amenity Payment</a>
+        <a href="{{ url_for('rent_payment_page') }}" class="btn">Rent Payment</a>
+    </div>
+
+    <section>
+        <h2>Total Rent Collected Per Community</h2>
+        <table id="rentPerCommunity">
+            <thead>
+                <tr>
+                    <th>Community</th>
+                    <th>Total Rent</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Maintenance Requests by Priority</h2>
+        <table id="requestsByPriority">
+            <thead>
+                <tr>
+                    <th>Priority</th>
+                    <th>Number of Requests</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Amenity Payments</h2>
+        <table id="amenityPayments">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Renter</th>
+                    <th>Amenity</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Maintenance Requests Detail</h2>
+        <table id="maintenanceDetail">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Community</th>
+                    <th>Unit Address</th>
+                    <th>Renter</th>
+                    <th>Type</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+</div>
+
+</body>
+</html>

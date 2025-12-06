@@ -1,0 +1,269 @@
+/* =========================
+   FUTURISTIC HIGH-END RESTAURANT THEME
+   White & Lavender Edition
+   ========================= */
+
+:root {
+  --primary: #8c7ae6;          /* Lavender main */
+  --primary-light: #b497fc;    /* Light lavender accent */
+  --primary-dark: #5d4bd7;     /* Dark lavender accent */
+  --accent: #ffffff;            /* White accent */
+  --bg-light: #ffffff;          /* White background */
+  --card-bg: #f3f3ff;          /* Light lavender card background */
+  --text-dark: #1a1a2e;         /* Dark text */
+  --text-muted: #7a6ee5;       /* Muted lavender */
+
+  --radius-big: 18px;
+  --radius-med: 10px;
+
+  --shadow-soft: 0 4px 15px rgba(140,122,230,0.15);
+  --shadow-medium: 0 6px 20px rgba(140,122,230,0.2);
+  --shadow-glow: 0 0 12px rgba(180,151,252,0.25);
+}
+
+/* ---------- Base Layout ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+/* ---------- Top Header ---------- */
+.top-header {
+  max-width: 1400px;
+  margin: 0 auto 30px auto;
+  padding: 20px 28px;
+
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--text-dark);
+
+  border-radius: var(--radius-big);
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.top-header:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.top-header h1 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+/* ---------- Page Titles / Headings ---------- */
+h1, h2, .title {
+  text-align: center;
+  color: var(--primary-dark);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+section h2::after, .title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary-dark));
+  margin: 8px auto 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ---------- Button Grid ---------- */
+.menu, .amenity-buttons, .button-group {
+  max-width: 1000px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ---------- Futuristic Buttons ---------- */
+.btn {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--accent);
+
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  border-radius: var(--radius-med);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: rgba(255,255,255,0.1);
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.4s ease;
+}
+
+.btn:hover::before {
+  transform: rotate(45deg) scale(1);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ---------- Form Card ---------- */
+.form-container {
+  width: 95%;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: var(--radius-big);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.4s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.form-container input {
+  width: 30%;
+  min-width: 180px;
+  padding: 12px;
+  margin: 10px;
+  border-radius: var(--radius-med);
+  border: 1px solid #ccc;
+  background: #f9f9ff;
+  color: var(--text-dark);
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.form-container input:focus {
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 8px var(--primary-light);
+  outline: none;
+}
+
+.form-container button {
+  margin-top: 20px;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-med);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+/* ---------- Table Card ---------- */
+.table-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 25px;
+  background: var(--card-bg);
+  border-radius: var(--radius-big);
+  box-shadow: var(--shadow-medium);
+  overflow-x: auto;
+  transition: all 0.3s ease;
+}
+
+.table-container:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+thead th {
+  padding: 14px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) td {
+  background: #f0f0ff;
+}
+
+tbody tr:hover td {
+  background: #e0e0ff;
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+.table-container button {
+  padding: 6px 14px;
+  font-weight: 700;
+  border-radius: var(--radius-med);
+  border: none;
+  cursor: pointer;
+  background: var(--primary-light);
+  color: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.table-container button:hover {
+  background: var(--primary);
+  transform: scale(1.05);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .btn {
+    width: 90%;
+  }
+  table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1, h2, .title {
+    font-size: 22px;
+  }
+  .btn {
+    font-size: 14px;
+  }
+}

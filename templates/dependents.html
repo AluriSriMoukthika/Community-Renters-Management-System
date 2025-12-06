@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dependents</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<h1>Dependents</h1>
+
+<div class="form-container">
+    <h3>Add Dependent</h3>
+
+    <input type="number" id="renter_id" placeholder="Renter_ID">
+    <input type="text" id="dept_ssn" placeholder="Dept_SSN">
+    <input type="text" id="dept_name" placeholder="Dept_Name">
+    <input type="text" id="dept_phone" placeholder="Dept_Phone">
+    <input type="text" id="dept_email" placeholder="Dept_Email">
+
+    <button onclick="addDependent()">Add Dependent</button>
+</div>
+
+<div class="table-container">
+    <table id="dependentsTable">
+        <thead>
+            <tr>
+                <th>Renter_ID</th>
+                <th>Dept_SSN</th>
+                <th>Dept_Name</th>
+                <th>Dept_Phone</th>
+                <th>Dept_Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script>
+window.onload = () => {
+    if (window.location.pathname.includes("dependents")) {
+        loadDependents();
+    }
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+/* =========================
+   FUTURISTIC LAVENDER + WHITE PAYMENT THEME
+   ========================= */
+
+:root {
+  --primary: #9b6ef3;
+  --primary-light: #c7b3ff;
+  --primary-dark: #7a51d1;
+  --accent: #5a2fc2;
+
+  --bg-light: #ffffff;
+  --card-bg: #f4f0ff;
+  --text-dark: #2b2b2b;
+  --text-muted: #666;
+
+  --radius-big: 20px;
+  --radius-med: 12px;
+
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.10);
+  --shadow-medium: 0 6px 18px rgba(0,0,0,0.15);
+  --shadow-glow: 0 0 10px rgba(155,110,243,0.25);
+  --shadow-neon: 0 0 8px rgba(155,110,243,0.35);
+}
+
+/* ---------- Base Layout ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* ---------- Container ---------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 30px auto;
+}
+
+/* ---------- Page Titles ---------- */
+.title, h1, h2 {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+section h2::after, .title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary-dark));
+  margin: 6px auto 0;
+  border-radius: 2px;
+  box-shadow: var(--shadow-neon);
+}
+
+/* ---------- Button Group ---------- */
+.button-group {
+  max-width: 800px;
+  margin: 25px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  padding: 14px 30px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+
+  color: white;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  border-radius: var(--radius-med);
+  box-shadow: var(--shadow-soft);
+
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  width: 130%;
+  height: 130%;
+  top: -15%;
+  left: -15%;
+  background: rgba(255,255,255,0.15);
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.5s ease;
+}
+
+.btn:hover::before {
+  transform: rotate(45deg) scale(1);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ---------- Table Wrapper (NEW) ---------- */
+section table {
+  margin: 20px auto;
+  background: var(--card-bg);
+  border-radius: var(--radius-big);
+  box-shadow: var(--shadow-medium);
+  overflow-x: auto;
+  padding: 20px;
+}
+
+/* ---------- Tables (UPDATED) ---------- */
+table {
+  width: auto;                     /* ADJUST WIDTH BASED ON CONTENT */
+  max-width: 100%;
+  border-collapse: collapse;
+
+  table-layout: auto;              /* LET COLUMNS SIZE THEMSELVES */
+  margin: 0 auto;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+thead th {
+  padding: 12px 16px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;             /* Avoid stretched headers */
+}
+
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;             /* Prevent long stretching */
+}
+
+/* Alternating rows */
+tbody tr:nth-child(even) td {
+  background: #f0e8ff;
+}
+
+/* Hover effect */
+tbody tr:hover td {
+  background: #e6dbff;
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .btn {
+    width: 90%;
+    text-align: center;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1, h2, .title {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+}

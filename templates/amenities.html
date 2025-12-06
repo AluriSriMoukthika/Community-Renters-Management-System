@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amenities</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<h1>Amenities</h1>
+
+<!-- ---------- AMENITY TYPE BUTTONS ---------- -->
+<div class="amenity-buttons">
+    <a href="/gym" class="btn">Gym</a>
+    <a href="/pool" class="btn">Pool</a>
+    <a href="/clubhouse" class="btn">Clubhouse</a>
+    <a href="/gaming_cafe" class="btn">Gaming Cafe</a>
+</div>
+
+<!-- ---------- TABLE ---------- -->
+<div class="table-container">
+    <table id="amenitiesTable">
+        <thead>
+            <tr>
+                <th>Amenity_ID</th>
+                <th>Ame_Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- ---------- REVENUE SUMMARY ---------- -->
+<h2>Amenity Revenue Summary</h2>
+
+<div class="table-container">
+    <table id="amenityRevenueTable">
+        <thead>
+            <tr>
+                <th>Amenity ID</th>
+                <th>Amenity Name</th>
+                <th>Total Revenue</th>
+                <th>Number of Payments</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<script>
+window.onload = () => {
+    if (window.location.pathname.includes("amenities")) {
+        loadAmenities();
+        loadAmenityRevenue();
+    }
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<h1>Community</h1>
+
+<div class="form-container">
+    <h3>Add Community</h3>
+
+    <input type="number" id="com_id" placeholder="Community_ID" required>
+    <input type="text" id="com_name" placeholder="Com_Name">
+    <input type="text" id="address" placeholder="Address">
+    <input type="text" id="contact" placeholder="Contact">
+
+
+    <button onclick="addCommunity()">Add Community</button>
+</div>
+
+<div class="table-container">
+    <table id="communityTable">
+        <thead>
+            <tr>
+                <th>Com_ID</th>
+                <th>Com_Name</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script>
+window.onload = () => {
+    if (window.location.pathname.includes("community")) {
+        loadCommunity();
+    }
+};
+</script>
+
+</body>
+</html>

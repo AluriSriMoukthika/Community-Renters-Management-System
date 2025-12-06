@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent Payments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='rent_payment.js') }}" defer></script>
+</head>
+<body>
+
+<h1>Rent Payments</h1>
+
+<div class="form-container">
+    <h3>Add Rent Payment</h3>
+    <input type="number" id="pay_id" placeholder="Payment ID">
+    <input type="number" id="unit_id" placeholder="Unit ID">
+    <input type="number" id="renter_id" placeholder="Renter ID">
+    <input type="number" id="rent_amount" placeholder="Rent Amount">
+    <input type="date" id="pay_date" placeholder="Date">
+    <input type="text" id="pay_type" placeholder="Payment Type">
+    <button id="addRentPayBtn">Add Rent Payment</button>
+</div>
+
+<div class="table-container">
+    <table id="rentPaymentTable">
+        <thead>
+            <tr>
+                <th>Re_Pay_ID</th>
+                <th>Unit_ID</th>
+                <th>Renter_ID</th>
+                <th>Rent_Amount</th>
+                <th>Date</th>
+                <th>Payment_Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+</body>
+</html>

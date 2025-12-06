@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amenity Payments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='amenity_payment.js') }}" defer></script>
+</head>
+<body>
+
+<h1>Amenity Payments</h1>
+
+<div class="form-container">
+    <h3>Add Amenity Payment</h3>
+    <input type="number" id="amenity_pay_id" placeholder="Payment ID">
+    <input type="number" id="renter_id" placeholder="Renter ID">
+    <input type="number" id="amenity_id" placeholder="Amenity ID">
+    <input type="number" id="amount" placeholder="Amount">
+    <input type="date" id="amen_pay_date" placeholder="Payment Date">
+    <input type="text" id="amen_pay_type" placeholder="Payment Type">
+    <button id="addAmenityPayBtn">Add Payment</button>
+</div>
+
+<div class="table-container">
+    <table id="amenityPaymentTable">
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Renter ID</th>
+                <th>Amenity ID</th>
+                <th>Amount</th>
+                <th>Payment Date</th>
+                <th>Payment Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+</body>
+</html>
